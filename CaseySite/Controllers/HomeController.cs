@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace CaseySite.Controllers
 {
     public class HomeController : Controller
@@ -25,6 +26,11 @@ namespace CaseySite.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public PartialViewResult Projects()
+        {
+            return PartialView();
         }
     }
 }
