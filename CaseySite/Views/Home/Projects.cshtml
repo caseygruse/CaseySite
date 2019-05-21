@@ -5,6 +5,7 @@
 <div class="projectFlexContainer">
     @foreach (var item in Model)
     {
+    <div id="@item.ProjectId"> @item.ProjectId</div>
     <div class="projectContainer btn btn-primary" data-toggle="modal" data-target="#myModal">
         <div class="projectProp"><p class="projectName">@item.Name</p></div>
         <img src=@item.Photo class="projectProp projectPhoto" width="200" height="200"/>
