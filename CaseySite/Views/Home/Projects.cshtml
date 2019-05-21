@@ -1,43 +1,55 @@
 ﻿@model IEnumerable<CaseySite.Models.Project>
 
-    <link href="~/Css/ProjectsCss.css" rel="stylesheet">   
+<link href="~/Css/ProjectsCss.css" rel="stylesheet">
 
+@*Creates a card for each project and when clicked has corresponding modal*@
 <div class="projectFlexContainer">
     @foreach (var item in Model)
     {
-    <div id="@item.ProjectId"> @item.ProjectId</div>
-    <div class="projectContainer btn btn-primary" data-toggle="modal" data-target="#myModal">
-        <div class="projectProp"><p class="projectName">@item.Name</p></div>
-        <img src=@item.Photo class="projectProp projectPhoto" width="200" height="200"/>
-        <div class="projectProp"><p class="Description">@item.Description</p></div>
-    </div>
+        <div class="projectContainer">
+            <div id="@("container"+@item.ProjectId)" class="btn btn-primary" data-toggle="modal" data-target="@("#modal"+@item.ProjectId)">
+                <div class="projectProp"><p class="projectName">@item.Name</p></div>
+                <img src="@item.Photo" class="projectProp projectPhoto" width="200" height="200" />
+                <div class="projectProp"><p class="Description">@item.Description</p></div>
+            </div>
+        </div>
     }
 </div>
 
+@*Creates a modal for each project using project data*@
+@foreach (var item in Model)
+{
+    <div class="modal" id="@("modal"+@item.ProjectId)">
+        <div class="modal-dialog">
+            <div class="modal-content" style="padding: 20px;">
 
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h2 class="modal-title">@item.Name</h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- Modal body -->
+                <div class="modal-body" style="padding: 0; margin: 0;">
+                    <img src="~/Photos/eliteK9Home.png" />
+                    @*"~/Photos/eliteK9Home.PNG"*@
+                    <p class="modalText">
+                        @item.Summary
+                    </p>
+                    <a href="@item.Link">@item.Link</a>
+                    <a href="@item.Github">@item.Github</a>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
             </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-                Modal body..
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-
         </div>
     </div>
-</div>
+
+}
 
 
 <script src="~/JavaScript/ProjectJS.js"></script>
