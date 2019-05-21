@@ -1,2 +1,14 @@
 ﻿@model IEnumerable<CaseySite.Models.Project>
 
+    <link href="~/Css/ProjectsCss.css" rel="stylesheet">   
+
+<div class="projectFlexContainer">
+    @foreach (var item in Model)
+    {
+    <div class="projectContainer">
+        <div class="projectProp"><p class="projectName">@item.Name</p></div>
+        <img src=@item.Photo class="projectProp projectPhoto" width="200" height="200"/>
+        <div class="projectProp"><p class="Description">@item.Description</p></div>
+    </div>
+    }
+</div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaseySite.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,7 +31,8 @@ namespace CaseySite.Controllers
 
         public PartialViewResult Projects()
         {
-            return PartialView();
+            List<Project> projects = DbHelper.GetProjects();
+            return PartialView(projects);
         }
     }
 }
