@@ -9,7 +9,7 @@
         <div class="projectContainer">
             <div id="@("container"+@item.ProjectId)" class="btn btn-primary" data-toggle="modal" data-target="@("#modal"+@item.ProjectId)">
                 <div class="projectProp"><p class="projectName">@item.Name</p></div>
-                <img src="@item.Photo" class="projectProp projectPhoto" width="200" height="200" />
+                <img src="@Url.Content(item.Photo)" class="projectProp projectPhoto" width="200" height="200" />
                 <div class="projectProp"><p class="Description">@item.Description</p></div>
             </div>
         </div>
@@ -19,6 +19,7 @@
 @*Creates a modal for each project using project data*@
 @foreach (var item in Model)
 {
+    
     <div class="modal" id="@("modal"+@item.ProjectId)">
         <div class="modal-dialog">
             <div class="modal-content" style="padding: 20px;">
@@ -31,12 +32,14 @@
 
                 <!-- Modal body -->
                 <div class="modal-body" style="padding: 0; margin: 0;">
-                    <img src="~/Photos/eliteK9Home.png" />
+                    @*creates a virtual relative path*@
+                    <img style="border: 2px solid black;" src="@Url.Content(item.Photo)" />
                     @*"~/Photos/eliteK9Home.PNG"*@
                     <p class="modalText">
                         @item.Summary
                     </p>
                     <a href="@item.Link">@item.Link</a>
+                    <br>
                     <a href="@item.Github">@item.Github</a>
                 </div>
 
