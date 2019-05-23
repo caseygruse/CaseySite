@@ -19,10 +19,11 @@
     width: 100%;
 }
 
-.openImage{
+.openImage {
     max-width: 100%;
     height: auto;
     position: relative;
+    box-shadow: 0 30px 40px 5px rgba(0,0,0,.5);
 }
 
 .imageCaption {
@@ -32,6 +33,25 @@
     font-size: xx-large;
     font-weight: bold;
     
+}
+
+.sectionHeader {
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-top: 50px; 
+    flex: 1;
+}
+
+.pText{
+    margin-top: 90px;
+    color: white;
+    flex: 3
+}
+
+.about{
+    display: flex;
 }
 
 
