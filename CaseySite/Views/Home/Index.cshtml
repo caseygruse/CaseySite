@@ -2,4 +2,23 @@
     ViewBag.Title = "Home Page";
 }
 
-@Html.Action("Projects")
+@section head{
+    <link rel="stylesheet" href="~/Css/Main.css" />
+}
+
+    <div class="imageContainer">
+        <img class="openImage" src="~/Photos/HomeImage.jpg" alt="keyboard" />
+        <div class="imageCaption">.NET Developer</div>
+    </div>    
+
+<div class="">
+
+    @Html.Action("Projects")
+
+
+    <br />
+    <br />
+    <div id="imageContainer">
+        <img class="profilePic" src="https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/c39.41.494.494a/s240x240/936886_646542342027298_655703467_n.jpg?_nc_cat=101&_nc_ht=scontent-sea1-1.xx&oh=0da1d0bbef4e331885251eba8226a9c1&oe=5D54C777" alt="Casey Gruse" />
+    </div>
+</div>
